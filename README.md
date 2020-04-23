@@ -1,7 +1,7 @@
 ## Jenkins
 
 ## Kubernetes Cluster
-You can refer to my repo [CICD_ML_AWS_K8S](https://github.com/cy235/CICD_ML_AWS_K8S) to create a Kubernetes cluster.
+You can refer to my repo [Deploy_Dask_Jupyter_K8S_AWS](https://github.com/cy235/Deploy_Dask_Jupyter_K8S_AWS) to create a Kubernetes cluster.
 
 ## Install Helm
 First, let’s install Helm, the Kubernetes package manager. On Mac OS X, we’ll use brew to install. If you’re on another platform, check out the Helm docs.

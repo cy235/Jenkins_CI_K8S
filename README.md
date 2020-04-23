@@ -150,6 +150,7 @@ $ export POD_NAME=$(kubectl get pods --namespace monitoring| grep grafana| cut -
 $ kubectl --namespace monitoring port-forward $POD_NAME 3000
 ```
 Go to http://localhost:3000 in your browser. You should see the Grafana login screen:
+![image](https://github.com/cy235/Deploy_Dask_Jupyter_K8S_AWS/blob/master/auto_scaling_group.jpg)
 
 Login with the username and password you have from the previous command.
 

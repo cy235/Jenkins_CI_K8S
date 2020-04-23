@@ -150,7 +150,7 @@ $ export POD_NAME=$(kubectl get pods --namespace monitoring| grep grafana| cut -
 $ kubectl --namespace monitoring port-forward $POD_NAME 3000
 ```
 Go to http://localhost:3000 in your browser. You should see the Grafana login screen:
-![image](https://github.com/cy235/Deploy_Dask_Jupyter_K8S_AWS/blob/master/auto_scaling_group.jpg)
+![image](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/image/grafana1.jpg)
 
 Login with the username and password you have from the previous command.
 
@@ -159,9 +159,11 @@ Grafana has a long list of prebuilt dashboard here: https://grafana.com/dashboar
 
 Here you will find many many dashboards to use. We will use this one as it is quite comprehensive in everything it tracks.
 
-In the left hand menu, choose `Dashboards > Manage > + Import`
-
+In the left hand menu, choose `Dashboards > Manage`
+![image](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/image/grafana2.jpg)
 In the `Grafana.com dashboard` input, add the dashboard ID we want to use: `1860` and click `Load`
+![image](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/image/grafana3.jpg)
 On the next screen select a name for your dashboard and select Prometheus as the datasource for it and click Import.
-
+![image](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/image/grafana4.jpg)
 Now you can see the extensive list of metrics in dashboard. 
+![image](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/image/grafana5.jpg)

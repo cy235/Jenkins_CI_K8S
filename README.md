@@ -7,7 +7,7 @@ Go to https://github.com/helm/helm/releases, download Helm v2.x.x (DO NOT downlo
 /usr/local/bin/ 
 ```
 ## Create the Tiller Service Account
-Create a folder called `helm`. Here we will create all Kubernetes resources for tiller. Create a file called `helm/service-account.yml`.
+Create a folder called `helm`. Here we will create all Kubernetes resources for tiller. Create a file called [helm/service-account.yml](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/helm/service-account.yml).
 ```
 $ kubectl apply -f helm/service-account.yml
 $ kubectl get serviceaccounts -n kube-system
@@ -16,7 +16,7 @@ NAME                   SECRETS   AGE
 tiller                 1         3m
 ```
 ## Create the service account role binding
-For demo purpose we will create a role binding to cluster-admin. Create a file called helm/role-binding.yml in the helm folder.
+For demo purpose we will create a role binding to cluster-admin. Create a file called [helm/role-binding.yml](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/helm/role-binding.yml) in the helm folder.
 Apply and test that the role binding exists on the cluster.
 ```
 $ kubectl apply -f helm/role-binding.yml
@@ -44,7 +44,7 @@ We will separate our monitoring resources into a separate namespace to keep them
 
 Create a folder called `monitoring`. Here we will create all our monitoring resources.
 
-Create a file called `monitoring/namespace.yml` with the content.
+Create a file called [monitoring/namespace.yml](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/monitoring/namespace.yml) with the content.
 
 Apply & Test the namespace exists.
 
@@ -96,7 +96,7 @@ When the Grafana Helm chart gets deployed, it will search for any config maps th
 ## Create a Prometheus data source config map
 In the `monitoring` folder, create a sub-folder called `grafana`.
 Here is where we will store our configs for the grafana deployment.
-Create a file called `monitoring/grafana/config.yml`
+Create a file called [monitoring/grafana/config.yml](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/monitoring/grafana/config.yml)
 
 Here is where we add the `grafana_datasource` label which will tell the grafana provisioner that this is a datasource it should inject.
 ```
@@ -119,7 +119,7 @@ When Grafana gets deployed and the provisioner runs, the data source provisioner
 
 We need to create our own values.yml file to override the datasources search value, so when Grafana is deployed it will search our datasource.yml definition and inject it.
 
-Create a file called monitoring/grafana/values.yml.
+Create a file called [monitoring/grafana/values.yml](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/monitoring/grafana/values.yml).
 
 This will inject a sidecar which will load all the data sources into Grafana when it gets provisioned.
 
@@ -161,9 +161,12 @@ Here you will find many many dashboards to use. We will use this one as it is qu
 
 In the left hand menu, choose `Dashboards > Manage`
 ![image](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/image/grafana2.jpg)
+
 In the `Grafana.com dashboard` input, add the dashboard ID we want to use: `1860` and click `Load`
 ![image](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/image/grafana3.jpg)
+
 On the next screen select a name for your dashboard and select Prometheus as the datasource for it and click Import.
 ![image](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/image/grafana4.jpg)
+
 Now you can see the extensive list of metrics in dashboard. 
 ![image](https://github.com/cy235/Jenkins_K8S_Grafana/blob/master/image/grafana5.jpg)
